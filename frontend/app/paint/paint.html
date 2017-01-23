@@ -1,0 +1,66 @@
+<div class="container" style="margin: 20px auto 0 auto;">
+
+    <h1 class="text-center">Online Paint Application</h1>
+
+    <div class="row">
+        <div class="col-xs-2">
+            Brush Size
+            <input type="number" min="1" max="50" ng-model="value" ng-change="vm.ChangeLineWidth(value)" style="width:50%" ng-init="value = 10"/>
+        </div>
+
+        <div class="col-xs-3">
+            <div class="btn-group">
+            <button class="btn btn-default" ng-click="vm.undo()">
+                Undo
+                <span class="glyphicon glyphicon-share-alt"   id="my-glyphicon"></span>
+            </button>
+            <button class="btn btn-default" ng-click="vm.redo()">
+                Redo
+                <span class="glyphicon glyphicon-share-alt"></span>
+            </button>
+            <button class="btn btn-danger" ng-click="vm.clear()">
+                Clear
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="btn-group">
+            <label class="btn btn-default btn-file"> Choose Image.....
+                <input type="file" id="file" style="display:none;" accept="image/*"/>
+            </label>
+            <button class="btn btn-info" ng-click="vm.add()">
+                Apply
+                <span class="glyphicon glyphicon-open"></span>
+            </button>
+            </div>
+        </div>
+            <div class="btn-group">
+            <label class = "btn btn-default btn-color">
+                Select Color
+                <img src="fonts/rsz_1color-picker.png">
+                <input type="color" ng-model="colortest" style="display:none;" ng-change = "vm.changeBrushColor(colortest)" />
+            </label>
+            <a id="download" class="btn btn-info" ng-click = "vm.downloadImage()" download="test.jpeg">
+                Download
+                <span class="glyphicon glyphicon-save-file"></span>
+            </a>
+            <button class="btn btn-info" ng-click="vm.saveImage()">
+                Save Image
+            <span class="glyphicon glyphicon-picture"></span>
+            </button>
+            </div>
+
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12">
+            <div style="position: relative" >
+                <canvas id="CanvasMain" ></canvas>
+                <canvas id="CanvasTmp" style="position: absolute;top:0;left:0;"></canvas>
+               <!-- <canvas id="CanvasTmp" style="position: absolute;top:0;left:0;"></canvas> -->
+            </div>
+        </div>
+    </div>
+    <div class="row" style="height:50px;"></div>
+</div>

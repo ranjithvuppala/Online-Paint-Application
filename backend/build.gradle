@@ -1,0 +1,23 @@
+apply plugin: 'application'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+		
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'		
+project.ext {		    
+	dropwizardVersion = '0.9.2'		
+	}		
+repositories {		   
+	 mavenCentral()		
+	 }		
+dependencies {		    
+	compile group: 'io.dropwizard', name: 'dropwizard-core', version: dropwizardVersion
+	compile group: 'io.dropwizard', name: 'dropwizard-db', version: dropwizardVersion
+	compile group: 'com.bazaarvoice.dropwizard', name: 'dropwizard-configurable-assets-bundle', version: '0.2.2'
+	compile group: 'org.glassfish.jersey.media', name: 'jersey-media-multipart', version: '2.24.1'
+	compile group: 'org.jvnet.mimepull', name: 'mimepull', version: '1.9.3'	
+	}
+
+startScripts {
+    mainClassName = "application.EpidemicPaint"
+}
